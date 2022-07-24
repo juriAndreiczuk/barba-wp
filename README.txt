@@ -1,4 +1,6 @@
-# App Start
+barba.js wordpress workflow (gulp based)
+
+App Start
 1. 'npm i'
 2. 'gulp'
 
