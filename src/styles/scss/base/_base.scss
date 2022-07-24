@@ -1,0 +1,67 @@
+body {
+  overflow-x: hidden;
+}
+
+body,
+a,
+p,
+button {
+  font-family: $normal-font;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $normal-font;
+  font-weight: 700;
+}
+
+button,
+a,
+video {
+	outline: none;
+    &:focus {outline:none;}
+    &::-moz-focus-inner {border:0;}
+}
+
+.link-disabled {
+  cursor: not-allowed;
+  opacity: .7;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: transparentize($main-color, .2) transparent;
+  scroll-behavior: smooth;
+  &::-webkit-scrollbar {
+    width: 10px;
+  } 
+  &::-webkit-scrollbar {
+    background-color: transparent; /* or add it to the track */
+  }
+  &::-webkit-scrollbar-thumb {
+    background:  transparentize($main-color, .2);
+  }
+}
+
+select:focus,
+button:focus {
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  outline: $main-color;
+}
+
+section {
+  position: relative;
+}
+
+.site {
+  opacity: 0;
+}

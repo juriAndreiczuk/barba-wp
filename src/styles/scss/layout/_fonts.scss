@@ -1,0 +1,10 @@
+@for $i from 10 through 130 {
+	%font-#{$i} {
+		font-size: #{$i}px
+	}
+	@media (min-width: 1920px) {
+		%font-#{$i} {
+			font-size: vw($i);		
+		}
+	}
+}
