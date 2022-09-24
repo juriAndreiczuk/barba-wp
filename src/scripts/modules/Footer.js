@@ -1,4 +1,4 @@
-class Footer {
+export default class Footer {
   constructor() {
     this.mainWrap = document.querySelector('.site-footer')
   }
@@ -13,7 +13,3 @@ class Footer {
       .to(this.mainWrap, { opacity: 1 })
   }
 }
-
-const mainFooter = new Footer()
-
-export default mainFooter

@@ -1,7 +1,7 @@
 import { emitter } from './Emitter'
 // modules
-import mainHeader from '../modules/Header'
-import mainFooter from '../modules/Footer'
+import Header from './../modules/Header'
+import Footer from './../modules/Footer'
 // pages
 import Error from './../pages/Error'
 import Homepage from './../pages/Homepage'
@@ -11,13 +11,10 @@ class AppState {
   constructor() {
     this.currentPage = ''
     emitter.subscribe('changePage', val => {  this.currentPage = val })
-    this.pages = [
-      Error,
-      Homepage
-    ]
-    this.templates = {
-      posts
-    }
+    this.pages = [ Error, Homepage ]
+    this.templates = { posts }
+    this.header = new Header('.header')
+    this.footer = new Footer('.footer')
   }
 
   async setPosts(val) {

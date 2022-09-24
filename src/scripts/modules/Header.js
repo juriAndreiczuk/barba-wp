@@ -1,6 +1,6 @@
 import { emitter } from '../core/Emitter'
 
-class Header {
+export default class Header {
   constructor() {
     this.mainWrap = document.querySelector('.header')
     this.navLinks = this.mainWrap.querySelectorAll('a')
@@ -30,7 +30,3 @@ class Header {
     }
   }
 }
-
-const mainHeader = new Header();
-
-export default mainHeader
