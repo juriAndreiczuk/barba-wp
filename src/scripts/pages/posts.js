@@ -1,15 +1,13 @@
-import Page from './../core/Page'
+import { prototypePage } from './../core/Page'
 
 const posts = (val) => {
   const Posts = []
   for (const item of val) {
-    Posts.push(new Page({
-      pageName: `post-${item}`,
-      beforeEnter: () => {
-      },
-      afterEnter: () => {
-      }
-    }))
+    const post = prototypePage.produce()
+
+    post.namespace = `post-${item}`
+
+    Posts.push(post)
   }
   return Posts
 }

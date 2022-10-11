@@ -1,12 +1,12 @@
-export default class Page {
-  constructor(props) {
-    this.namespace = props.pageName
-    this.beforeEnterFunction = props.beforeEnter
-    this.afterEnterFunction = props.afterEnter
-    this.beforeLeaveFunction = props.beforeLeave || function() { return false}
+class Page {
+  constructor(pageName, beforeEnter, afterEnter, beforeLeave) {
+    this.namespace = pageName
+    this.beforeEnterFunction = beforeEnter
+    this.afterEnterFunction = afterEnter
+    this.beforeLeaveFunction = beforeLeave
   }
 
-  static firstLoading() {
+  firstLoading() {
     gsap.timeline()
       .to('.site', { opacity: 1 })
   }
@@ -27,4 +27,10 @@ export default class Page {
     gsap.timeline().to('.site-content', { opacity: 0 })
     this.beforeLeaveFunction()
   }
+
+  produce() {
+    return new Page(this.namespace, () => false, () => false, () => false)
+  }
 }
+
+export const prototypePage = new Page('prototype')

@@ -1,11 +1,7 @@
-import Page from './../core/Page'
+import { prototypePage } from './../core/Page'
 
-const Homepage = new Page({
-  pageName: 'homepage',
-  beforeEnter: () => {
-  },
-  afterEnter: () => {
-  }
-})
+const Homepage = prototypePage.produce()
+
+Homepage.namespace = 'homepage'
 
 export default Homepage

@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
 import appState from './core/AppState'
-import Page from './core/Page'
+import { prototypePage } from './core/Page'
 import { emitter } from './core/Emitter'
 import { delay } from './core/utils'
 
@@ -30,7 +30,7 @@ class App {
           async once(data) {
             await delay(300)
             emitter.emit('changePage', data.next.namespace)
-            Page.firstLoading()
+            prototypePage.firstLoading()
           }
         }
       ],
