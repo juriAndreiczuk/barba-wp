@@ -1,0 +1,64 @@
+@mixin rwd-indent($t, $r, $b, $l, $displays: false, $type: false) {
+    $auto: true;
+    @each $name, $size in $sizes-scale {
+      @media(max-width: #{calc($name - 1)}px) {
+        @each $display, $value in $displays {
+          @if $display == $name {
+            #{$type}: $value;
+            $auto: false;
+          } @else {
+            @if $auto {
+              #{$type}: #{calc($t * $size)}px #{calc($r * $size)}px #{calc($b * $size)}px #{calc($l * $size)}px;
+            }
+          }
+        }
+      }
+    }
+    @include desctop {
+      #{$type}: vw($t) vw($r) vw($b) vw($l);
+    }
+  }
+  
+  @mixin rwd-size($val, $displays: false, $type: false) {
+    $auto: true;
+    @each $name, $size in $sizes-scale {
+      @media(max-width: #{$name}px) {
+        @each $display, $value in $displays {
+          @if $display == $name {
+            #{$type}: $value;
+            $auto: false;
+          } @else {
+            @if $auto {
+              #{$type}: #{$val * $size}px;
+            }
+          }
+        }
+      }
+    }
+    @include desctop {
+      #{$type}: vw($val) ;
+    }
+  }
+  
+  
+  @mixin rwd-padding($t, $r, $b, $l, $displays: false) {
+    @include rwd-indent($t, $r, $b, $l, $displays, $type: "padding")
+  }
+  @mixin rwd-margin($t, $r, $b, $l, $displays: false) {
+    @include rwd-indent($t, $r, $b, $l, $displays, $type: "margin")
+  }
+  
+  @mixin rwd-width($val, $displays: false) {
+    @include rwd-size($val, $displays, $type: "width");
+  }
+  
+  @mixin rwd-height($val, $displays: false) {
+    @include rwd-size($val, $displays, $type: "height");
+  }
+  
+  @mixin rwd-radius($val) {
+    border-radius: #{$val}px;
+    @include desctop {
+      border-radius: vw($val);
+    }
+  }

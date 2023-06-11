@@ -1,8 +1,18 @@
 @for $i from 10 through 130 {
 	%font-#{$i} {
-		font-size: #{$i}px
+		font-size: #{$i * .8}px
 	}
-	@media (min-width: 1920px) {
+	@include mobile {
+		%font-#{$i} {
+			font-size: #{$i * .85}px
+		}
+	}
+	@include tablet {
+		%font-#{$i} {
+			font-size: #{$i * .9}px
+		}
+	}
+	@include desctop {
 		%font-#{$i} {
 			font-size: vw($i);		
 		}
