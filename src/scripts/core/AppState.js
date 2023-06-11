@@ -9,12 +9,18 @@ import posts from './../pages/posts'
 
 class AppState {
   constructor() {
+    if (typeof AppState.instance === 'object')  {
+      return AppState.instance
+    }
+
     this.currentPage = ''
     emitter.subscribe('changePage', val => {  this.currentPage = val })
     this.pages = [ Error, Homepage ]
     this.templates = { posts }
     this.header = new Header('.header')
     this.footer = new Footer('.footer')
+
+    AppState.instance = this
   }
 
   async setPosts(val) {
