@@ -5,7 +5,7 @@ import Footer from './../modules/Footer'
 // pages
 import Error from './../pages/Error'
 import Homepage from './../pages/Homepage'
-import posts from './../pages/posts'
+import posts from './../templates/posts'
 
 class AppState {
   constructor() {
