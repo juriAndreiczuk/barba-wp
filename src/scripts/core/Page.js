@@ -17,10 +17,10 @@ class Page {
   }
 
   afterEnter() {
-    setTimeout(()=> {
-      gsap.timeline().to('.site-content', { opacity: 1 })
-      this.afterEnterFunction()
-    }, 0)
+    gsap.timeline().to('.site-content', {
+      opacity: 1,
+      onComplete: this.afterEnterFunction()
+    })
   }
 
   beforeLeave() {
