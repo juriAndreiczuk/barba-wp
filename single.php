@@ -6,7 +6,7 @@ $post_id = get_the_ID();
 
 ?>
 
-<div class="main-info news-post generated-post" data-barba="container"  data-barba-namespace="post-<?= $post_id; ?>">
+<div class="main-info news-post generated-post" data-barba="container"  data-barba-namespace="post">
 </div>
 
 <?php get_footer(); ?>

@@ -1,15 +1,7 @@
 import { prototypePage } from './../core/Page'
 
-const posts = (val) => {
-  const Posts = []
-  for (const item of val) {
-    const post = prototypePage.produce()
+const Posts = prototypePage.produce()
 
-    post.namespace = `post-${item}`
+Posts.namespace = 'post'
 
-    Posts.push(post)
-  }
-  return Posts
-}
-
-export default posts
+export default Posts

@@ -5,7 +5,7 @@ import Footer from './../modules/Footer'
 // pages
 import Error from './../pages/Error'
 import Homepage from './../pages/Homepage'
-import posts from './../templates/posts'
+import Posts from './../templates/Posts'
 
 class AppState {
   constructor() {
@@ -15,19 +15,11 @@ class AppState {
 
     this.currentPage = ''
     emitter.subscribe('changePage', val => {  this.currentPage = val })
-    this.pages = [ Error, Homepage ]
-    this.templates = { posts }
+    this.pages = [ Error, Homepage, Posts ]
     this.header = new Header('.header')
     this.footer = new Footer('.footer')
 
     AppState.instance = this
-  }
-
-  async setPosts(val) {
-    const response = await fetch(`${location.protocol}//${location.host}/wp-json/wp/v2/${val}/?per_page=100`)
-    const postsList = await response.json()
-    this[val] = this.templates[val](postsList.map(post => post.id))
-    this.pages.push(...this[val]) 
   }
 }
 

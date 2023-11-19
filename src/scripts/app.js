@@ -17,7 +17,6 @@ class App {
   }
 
   async appStart() {
-    await appState.setPosts('posts')
     barba.init({
       sync: true,
       debug: true,
